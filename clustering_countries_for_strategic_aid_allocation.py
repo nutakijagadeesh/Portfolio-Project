@@ -16,7 +16,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-df=pd.read_csv("Country-data.csv")
+df=pd.read_csv(r"c:\Users\Acer\OneDrive\Desktop\scler\portfolio project\Country-data.csv")
 
 df
 
@@ -164,9 +164,16 @@ df_normalized = pd.concat([numeric_df_normalized, non_numeric_df_dropped.reset_i
 from sklearn.preprocessing import OneHotEncoder
 
 # One-hot encode non-numerical variables
-encoder = OneHotEncoder(sparse=False, drop='first')
+encoder = OneHotEncoder(drop='first', sparse_output=False)
 non_numeric_encoded = encoder.fit_transform(non_numeric_df_dropped)
 non_numeric_encoded_df = pd.DataFrame(non_numeric_encoded, columns=encoder.get_feature_names_out(non_numeric_df_dropped.columns))
+
+feature_names = encoder.get_feature_names_out(non_numeric_df_dropped.columns)
+
+if non_numeric_encoded.shape[1] == len(feature_names):
+    non_numeric_encoded_df = pd.DataFrame(non_numeric_encoded, columns=feature_names)
+else:
+    raise ValueError("Mismatch between encoded features and feature names")
 
 # Combine the encoded non-numerical data with the normalized numerical data
 df_final = pd.concat([numeric_df_normalized, non_numeric_encoded_df.reset_index(drop=True)], axis=1)
