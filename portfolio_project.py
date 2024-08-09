@@ -16,7 +16,7 @@ with open('hierarchical.pkl', 'rb') as f:
     hierarchical = pickle.load(f)
 
 # Load your existing dataset (a subset of it) for batching
-existing_data = pd.read_csv(r'C:\Users\Acer\PycharmProjects\pythonProject4\env\Country-data.csv')  # Replace with your actual dataset path
+existing_data = pd.read_csv('Country-data.csv')  # Replace with your actual dataset path
 
 # Ensure that the existing data only contains numerical values
 existing_data_numeric = existing_data.select_dtypes(include=[float, int])
