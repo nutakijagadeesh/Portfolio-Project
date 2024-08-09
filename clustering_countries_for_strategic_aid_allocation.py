@@ -193,7 +193,7 @@ from sklearn.metrics import silhouette_score
 from sklearn.decomposition import PCA
 
 # K-Means Clustering
-kmeans = KMeans(n_clusters=5, random_state=42)  # Example with 5 clusters
+kmeans = KMeans(n_clusters=5, random_state=42, n_init=10)  # Example with 5 clusters
 kmeans_labels = kmeans.fit_predict(df_final)
 
 # Hierarchical Clustering
