@@ -77,7 +77,7 @@ if st.button('Predict and Visualize Clusters'):
     st.write(f'Predicted Hierarchical Cluster: {hierarchical_predicted_cluster}')
 
     # Refit the KMeans model on the combined dataset to update the clusters
-    kmeans.fit(combined_df,n_init='auto')
+    kmeans.fit(combined_df,n_init=5)
     kmeans_clusters = kmeans.predict(combined_df)
     kmeans_predicted_cluster = kmeans_clusters[-1]  # The cluster of the new input
 
