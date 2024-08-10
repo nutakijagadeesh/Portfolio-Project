@@ -1,3 +1,5 @@
+import scikit_learn
+
 import streamlit as st
 import pickle
 import pandas as pd
