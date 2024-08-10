@@ -3,6 +3,8 @@ import pickle
 import pandas as pd
 import warnings 
 import kmeans
+import sklearn
+
 
 warnings.filterwarnings("ignore", category=UserWarning, module='sklearn') 
 warnings.filterwarnings("ignore", category=FutureWarning, module='sklearn')
