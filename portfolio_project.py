@@ -67,17 +67,17 @@ if st.button('Predict and Visualize Clusters'):
 
     input_df = pd.DataFrame(input_data)
     input_df1 = pd.DataFrame(input_data)
-
+    new_input = combined_df1.iloc[-1].values.reshape(1, -1)
     # Combine input data with the existing dataset
     combined_df = pd.concat([existing_data_numeric, input_df], ignore_index=True)
-    combined_df1 = pd.concat([existing_data_numeric, input_df1], ignore_index=True)
+    combined_df1 = pd.concat([existing_data_numeric, new_input], ignore_index=True)
     # Predict the cluster using hierarchical clustering (AgglomerativeClustering)
     hierarchical_clusters = hierarchical.fit_predict(combined_df)
     hierarchical_predicted_cluster = hierarchical_clusters[-1]  # The cluster of the new input
 
     st.write(f'Predicted Hierarchical Cluster: {hierarchical_predicted_cluster}')
     # Refit the KMeans model on the combined dataset to update the clusters 
-    kmeans.fit(combined_df1,n_init= int in the range [1, inf)
+    kmeans.fit(combined_df1,n_init='auto'
     kmeans_clusters = kmeans.predict(combined_df1) 
     kmeans_predicted_cluster = kmeans_clusters[-1]  # The cluster of the new input 
     st.write(f'Predicted KMeans Cluster: {kmeans_predicted_cluster}')
