@@ -66,10 +66,11 @@ if st.button('Predict and Visualize Clusters'):
     }
 
     input_df = pd.DataFrame(input_data)
+    input_df1 = pd.DataFrame(input_data)
 
     # Combine input data with the existing dataset
     combined_df = pd.concat([existing_data_numeric, input_df], ignore_index=True)
-    combined_df1 = pd.concat([existing_data_numeric, input_df], ignore_index=True)
+    combined_df1 = pd.concat([existing_data_numeric, input_df1], ignore_index=True)
     # Predict the cluster using hierarchical clustering (AgglomerativeClustering)
     hierarchical_clusters = hierarchical.fit_predict(combined_df)
     hierarchical_predicted_cluster = hierarchical_clusters[-1]  # The cluster of the new input
