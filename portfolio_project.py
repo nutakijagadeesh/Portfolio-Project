@@ -1,5 +1,6 @@
-import sklearn
-
+from sklearn.svm import SVC
+from sklearn.utils.validation import has_fit_parameter
+has_fit_parameter(SVC(), "sample_weight")
 import streamlit as st
 import pickle
 import pandas as pd
