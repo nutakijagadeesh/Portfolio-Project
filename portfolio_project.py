@@ -1,11 +1,10 @@
-import scikit_learn
+import sklearn
 
 import streamlit as st
 import pickle
 import pandas as pd
 import warnings 
 import kmeans
-import scikit-learn
 
 
 warnings.filterwarnings("ignore", category=UserWarning, module='sklearn') 
