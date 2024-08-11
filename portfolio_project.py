@@ -12,23 +12,18 @@ warnings.filterwarnings("ignore", category=FutureWarning, module='sklearn')
 
 st.header('Country Clustering Prediction')
 
-# Load the models
 with open('kmeans.pkl', 'rb') as f:
     kmeans = pickle.load(f)
 
 with open('hierarchical.pkl', 'rb') as f:
     hierarchical = pickle.load(f)
 
-# Load your existing dataset (a subset of it) for batching
 existing_data = pd.read_csv('Country-data.csv')  # Replace with your actual dataset path
 
-# Ensure that the existing data only contains numerical values
 existing_data_numeric = existing_data.select_dtypes(include=[float, int])
 
-# Extract the country names
 country_names = existing_data['country'].tolist()
 
-# Create a dropdown for country selection
 selected_country = st.selectbox('Select a country to auto-fill fields:', country_names)
 
 # Autofill the input fields based on the selected country
@@ -54,7 +49,6 @@ else:
     total_fer = st.number_input('Total Fertility')
     gdpp = st.number_input('GDP per capita')
 
-# Button to predict and visualize clusters
 if st.button('Predict and Visualize Clusters'):
     input_data = {
         'child_mort': [child_mort],
